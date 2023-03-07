@@ -1,0 +1,15 @@
+Driving Game
+-----------------------------
+Current Features:
+	- Drive around a car with okay handling and pick up color-coded packages and deliver them to customers of that same color.
+	- You can collide with obstacles and they slow you down.
+	- You can get speed boosts that speed you up.
+	- There are hazards on the road that slow you down.
+
+This iteration Features:
+	- UI showing if the player has a package or not: The player can hold 3 small packages at one time, 1 medium package and 1 small package, or 1 large package.  You'll be able to see at the bottom right of the screen the spots you have remaining and the packages that you have picked up so far.
+	- Day system: You start on the first day and this is essentially the tutorial.  There 7 days (can be increased later).  A day lasts maybe 5 minutes.
+	  # Show a clock in the UI (digital clock) to show what time it is.
+	  # The player wakes up at 8am and goes to bed (arrives at house at most midnight.) If the player does not make it back to their house by midnight, they sleep in (they will wake up at 8am + number of minutes past 12:00 * 2), unless they have bought sleeping pills from the previous night.  If the player doesn't get back to their house by 4am, they fall asleep in their car, wake up the next day at noon and get a $75 ticket.
+	- UI will show the user how much money they have.  Money is gained through picking up and delivering packages.
+	- When the player goes home they can buy stuff
