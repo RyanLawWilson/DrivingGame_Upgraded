@@ -47,25 +47,6 @@ public class Driver : MonoBehaviour
     {
         RotateWheels();
         Accelerate();
-
-        // // Time.deltaTime makes movement framerate independent.
-        // // Get's the left and right arrow numbers.  Left = -1 | right = +1
-        // float steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
-        // // Up and Down.  Up = 1 | Down =  -1
-        // float moveDirection = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-
-        // // Moving forward gets you a faster turn rate
-        // // Being stationary turns you a little lower
-        // // Backing up has the slowest turn rate
-        // if (moveDirection > 0) {
-        //     transform.Rotate(0, 0, turnRate * -steerAmount);
-        // } else if (moveDirection == 0) {
-        //     transform.Rotate(0, 0, (turnRate/1.5f) * -steerAmount);
-        // } else {
-        //     transform.Rotate(0, 0, (turnRate/2) * steerAmount);
-        // }
-
-        // transform.Translate(0, moveDirection, 0);
     }
 
     public void OnMove(InputValue value) {
@@ -73,7 +54,6 @@ public class Driver : MonoBehaviour
     }
 
     private void RotateWheels() {
-        //Debug.Log(rawInput.x);
         // If the car is not moving, rotate at a slower rate.
         if (currentSpeed > -Mathf.Epsilon && currentSpeed < Mathf.Epsilon) {
             if (rawInput.x > Mathf.Epsilon) {
@@ -136,7 +116,6 @@ public class Driver : MonoBehaviour
         Move();
     }
 
-
     private IEnumerator IncrementSpeedSteadily() {
         while (true) {
             // If the player is moving backwards, use the breaks, otherwise, go forwards.
@@ -187,7 +166,6 @@ public class Driver : MonoBehaviour
         }
     }
 
-
     private void Move() {
         if (currentSpeed > -(acceleration - 0.01f) && currentSpeed < (acceleration - 0.01f)) {
             currentSpeed = 0f;
@@ -206,7 +184,7 @@ public class Driver : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        //topMoveSpeed = defaultSpeed;
+        // Figure This out since we are not using Physics to movement.
     }
 
     public void SetTopSpeed(float newSpeed) {
