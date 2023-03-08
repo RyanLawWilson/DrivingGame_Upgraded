@@ -13,12 +13,11 @@ public class Delivery : MonoBehaviour
     Color packageColor;
 
 
-    InventoryManager inventoryManager;
+    [SerializeField] InventoryManager inventoryManager;
     [SerializeField] int money = 500;
     [SerializeField] TextMeshProUGUI moneyText;
 
     private void Awake() {
-        inventoryManager = FindObjectOfType<InventoryManager>();
         moneyText.text = money.ToString("C0");
     }
 
