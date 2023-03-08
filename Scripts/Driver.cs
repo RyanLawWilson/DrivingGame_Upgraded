@@ -24,6 +24,7 @@ public class Driver : MonoBehaviour
     [SerializeField] TextMeshProUGUI decelerateText;
     [SerializeField] TextMeshProUGUI cruiseText;
     [SerializeField] TextMeshProUGUI otherText;
+    [SerializeField] TextMeshProUGUI speedText;
     
 
     Rigidbody2D rb;
@@ -47,6 +48,7 @@ public class Driver : MonoBehaviour
     {
         RotateWheels();
         Accelerate();
+        speedText.text = Mathf.Abs(currentSpeed).ToString("00") + " mph";
     }
 
     public void OnMove(InputValue value) {
