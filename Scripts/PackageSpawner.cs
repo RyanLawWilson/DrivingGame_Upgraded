@@ -7,6 +7,7 @@ public class PackageSpawner : MonoBehaviour
     [SerializeField] GameObject spawnLocationsContainer;
     [SerializeField] GameObject packagesContainer;
     [SerializeField] List<Package> listOfSpawnablePackages;
+    [SerializeField] int numberOfPackagesOnGameStart = 10;
     Transform[] packageSpawns;
 
     private void Awake() {
@@ -14,7 +15,7 @@ public class PackageSpawner : MonoBehaviour
     }
 
     private void Start() {
-        SpawnPackages(10);
+        SpawnPackages(numberOfPackagesOnGameStart);
     }
 
     public void SpawnPackage(int spawnPoint = -1) {
