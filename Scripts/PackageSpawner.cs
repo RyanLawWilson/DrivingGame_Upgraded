@@ -34,4 +34,12 @@ public class PackageSpawner : MonoBehaviour
         }
     }
 
+    public List<Package> GetListOfSpawnablePackages() {
+        return listOfSpawnablePackages;
+    }
+
+    public GameObject GetPackagesContainer() {
+        return packagesContainer;
+    }
+
 }
