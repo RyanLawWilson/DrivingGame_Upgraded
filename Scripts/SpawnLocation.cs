@@ -10,8 +10,13 @@ public class SpawnLocation : MonoBehaviour
     Package spawnedPackage;
     Coroutine checkSpawn;
 
-    public void SpawnPackage() {
-        if (!isClearOfObstacles) {Debug.Log("This Spawn Point is not clear of obstacles.");return;}
+    /// <summary>
+    /// Creates a random package at this SpawnLocation's position.
+    /// </summary>
+    /// <returns>Bool of whether or not the package was successfully created.
+    /// Returns true if the package was created.  Returns false if the creation failed.</returns>
+    public bool SpawnPackage() {
+        if (!isClearOfObstacles) {Debug.Log("This Spawn Point is not clear of obstacles.");return false;}
 
         isClearOfObstacles = false;
 
@@ -24,6 +29,7 @@ public class SpawnLocation : MonoBehaviour
                 packageSpawner.GetPackagesContainer().transform);
 
         checkSpawn = StartCoroutine(CheckIfSpawnedPackageIsStillThere());
+        return true;
     }
 
     private IEnumerator CheckIfSpawnedPackageIsStillThere() {

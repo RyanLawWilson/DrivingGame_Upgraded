@@ -9,10 +9,13 @@ public class PackageSpawner : MonoBehaviour
     [SerializeField] GameObject packagesContainer;
     [SerializeField] List<Package> listOfSpawnablePackages;
     [SerializeField] int numberOfPackagesOnGameStart = 10;
-    [SerializeField] SpawnLocation[] packageSpawns;
+    [SerializeField] List<SpawnLocation> packageSpawns;
 
     private void Awake() {
-        packageSpawns = spawnLocationsContainer.GetComponentsInChildren<SpawnLocation>().Where(o => o.tag == "Package Spawn Location").ToArray();
+        packageSpawns = spawnLocationsContainer.GetComponentsInChildren<SpawnLocation>().Where(o => o.tag == "Package Spawn Location").ToList();
+
+        //Randomize all of the spawn locations on Awake.
+        packageSpawns.Shuffle();
     }
 
     private void Start() {
@@ -20,16 +23,11 @@ public class PackageSpawner : MonoBehaviour
     }
 
     public void SpawnPackages(int quantity) {
-        for (int i = 0; i < quantity; i++) {
-            SpawnLocation randomSpawnPoint = packageSpawns[Random.Range(0, packageSpawns.Length)];
-    
-            randomSpawnPoint.SpawnPackage();
+        // If you are trying to spawn more packages than there are locations, set quantity to # of locations.
+        if (quantity > packageSpawns.Count) {quantity = packageSpawns.Count;}
 
-            // Instantiate(
-            //     listOfSpawnablePackages[Random.Range(0, listOfSpawnablePackages.Count)],
-            //     randomSpawnPoint,
-            //     Quaternion.identity,
-            //     packagesContainer.transform);
+        for (int i = 0; i < quantity; i++) {    
+            packageSpawns[i].SpawnPackage();
         }
     }
 
@@ -40,5 +38,4 @@ public class PackageSpawner : MonoBehaviour
     public GameObject GetPackagesContainer() {
         return packagesContainer;
     }
-
 }
