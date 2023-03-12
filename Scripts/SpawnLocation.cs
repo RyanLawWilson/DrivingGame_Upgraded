@@ -35,16 +35,14 @@ public class SpawnLocation : MonoBehaviour
     private IEnumerator CheckIfSpawnedPackageIsStillThere() {
         while(true) {
             if (spawnedPackage.gameObject.activeInHierarchy && spawnedPackage != null) {
-                if (Vector3.Distance(spawnedPackage.GetComponent<Transform>().position, transform.position) < 0.5f) {
-                    // The Package is still on the spawn point
-                    isClearOfObstacles = false;
-                    yield return new WaitForSeconds(1);
-                } else {
-                    // Package has left the spawn area.
-                    isClearOfObstacles = true;
-                    StopCoroutine(checkSpawn);
-                }
+                isClearOfObstacles = false;
+            } else {
+                // Package has left the spawn area.
+                isClearOfObstacles = true;
+                StopCoroutine(checkSpawn);
+                checkSpawn = null;
             }
+            yield return new WaitForSeconds(1);
         }
     }
 }
