@@ -9,7 +9,7 @@ public class PackageSpawner : MonoBehaviour
     [SerializeField] GameObject packagesContainer;
     [SerializeField] List<Package> listOfSpawnablePackages;
     [SerializeField] int numberOfPackagesOnGameStart = 10;
-    [SerializeField] List<SpawnLocation> packageSpawns;
+    List<SpawnLocation> packageSpawns;
 
     private void Awake() {
         packageSpawns = spawnLocationsContainer.GetComponentsInChildren<SpawnLocation>().Where(o => o.tag == "Package Spawn Location").ToList();

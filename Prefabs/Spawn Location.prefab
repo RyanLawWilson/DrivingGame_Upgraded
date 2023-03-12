@@ -115,5 +115,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagOfWhatWeAreSpawning: Package
-  packageSpawner: {fileID: 0}
   isClearOfObstacles: 1
