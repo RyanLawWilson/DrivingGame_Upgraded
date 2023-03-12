@@ -10,8 +10,8 @@ public class SpawnLocation : MonoBehaviour
     Package spawnedPackage;
     Coroutine checkSpawn;
 
-    public void SpawnPackage(int spawnPoint = -1) {
-        if (!isClearOfObstacles) {return;}
+    public void SpawnPackage() {
+        if (!isClearOfObstacles) {Debug.Log("This Spawn Point is not clear of obstacles.");return;}
 
         isClearOfObstacles = false;
 

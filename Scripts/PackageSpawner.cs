@@ -9,28 +9,27 @@ public class PackageSpawner : MonoBehaviour
     [SerializeField] GameObject packagesContainer;
     [SerializeField] List<Package> listOfSpawnablePackages;
     [SerializeField] int numberOfPackagesOnGameStart = 10;
-    [SerializeField] Transform[] packageSpawns;
+    [SerializeField] SpawnLocation[] packageSpawns;
 
     private void Awake() {
-        packageSpawns = spawnLocationsContainer.GetComponentsInChildren<Transform>().Where(o => o.tag == "Package Spawn Location").ToArray();
+        packageSpawns = spawnLocationsContainer.GetComponentsInChildren<SpawnLocation>().Where(o => o.tag == "Package Spawn Location").ToArray();
     }
 
     private void Start() {
         SpawnPackages(numberOfPackagesOnGameStart);
     }
 
-    public void SpawnPackage(int spawnPoint = -1) {
-        if (spawnPoint == -1) {spawnPoint = Random.Range(0, packageSpawns.Length);}
-    }
-
     public void SpawnPackages(int quantity) {
         for (int i = 0; i < quantity; i++) {
-            Vector3 spawnLocation = packageSpawns[Random.Range(0, packageSpawns.Length)].position;
-            Instantiate(
-                listOfSpawnablePackages[Random.Range(0, listOfSpawnablePackages.Count)],
-                spawnLocation,
-                Quaternion.identity,
-                packagesContainer.transform);
+            SpawnLocation randomSpawnPoint = packageSpawns[Random.Range(0, packageSpawns.Length)];
+    
+            randomSpawnPoint.SpawnPackage();
+
+            // Instantiate(
+            //     listOfSpawnablePackages[Random.Range(0, listOfSpawnablePackages.Count)],
+            //     randomSpawnPoint,
+            //     Quaternion.identity,
+            //     packagesContainer.transform);
         }
     }
 
