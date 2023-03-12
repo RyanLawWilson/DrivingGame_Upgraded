@@ -7,12 +7,12 @@ using TMPro;
 public class Driver : MonoBehaviour
 {
     Vector2 rawInput;
-    [SerializeField] float steerSpeed = 10;
+    //[SerializeField] float steerSpeed = 10;
     [SerializeField] float turnRate = 20f;
     [SerializeField] float slowTurnRate = 15f;
-    [SerializeField] float defaultSpeed = 14f;
+    //[SerializeField] float defaultSpeed = 14f;
     [SerializeField] float currentSpeed = 0f;
-    [SerializeField] float timeToGetToFullSpeed = 5f;
+    //[SerializeField] float timeToGetToFullSpeed = 5f;
     [SerializeField] float topMoveSpeed = 14f;
     [SerializeField] float acceleration = 1f;
     [SerializeField] float slowSpeed = 10f;
