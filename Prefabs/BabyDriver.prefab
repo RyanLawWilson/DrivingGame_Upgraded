@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5737647485547324409}
   - component: {fileID: 5737647485547324411}
   - component: {fileID: 5737647485547324408}
-  - component: {fileID: 5653185094239423996}
+  - component: {fileID: 2038541477}
   m_Layer: 0
   m_Name: BabyDriver
   m_TagString: Player
@@ -102,11 +102,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steerSpeed: 10
-  turnRate: 20
-  defaultSpeed: 14
-  moveSpeed: 14
+  turnRate: 100
+  slowTurnRate: 50
+  defaultSpeed: 12
+  currentSpeed: 0
+  timeToGetToFullSpeed: 5
+  topMoveSpeed: 12
+  acceleration: 0.5
   slowSpeed: 10
   boostSpeed: 18
+  breakSpeed: 0.75
+  speedText: {fileID: 0}
 --- !u!114 &5737647485547324409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +131,7 @@ MonoBehaviour:
   noPackageColor:
     serializedVersion: 2
     rgba: 4294967295
+  inventoryManager: {fileID: 0}
   money: 500
   moneyText: {fileID: 0}
 --- !u!50 &5737647485547324411
@@ -174,7 +181,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.502172, y: 3.4382474}
   m_EdgeRadius: 0
---- !u!114 &5653185094239423996
+--- !u!114 &2038541477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

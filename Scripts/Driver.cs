@@ -18,12 +18,6 @@ public class Driver : MonoBehaviour
     [SerializeField] float slowSpeed = 10f;
     [SerializeField] float boostSpeed = 18f;
     [SerializeField] float breakSpeed = 100f;
-
-
-    [SerializeField] TextMeshProUGUI accelerateText;
-    [SerializeField] TextMeshProUGUI decelerateText;
-    [SerializeField] TextMeshProUGUI cruiseText;
-    [SerializeField] TextMeshProUGUI otherText;
     [SerializeField] TextMeshProUGUI speedText;
     
 
@@ -112,9 +106,6 @@ public class Driver : MonoBehaviour
             }
         }
 
-        accelerateText.text = $"Accelerate: {(accelerateCoroutine != null ? "Active" : "Not Active")}";
-        decelerateText.text = $"Decelerate: {(decelerateCoroutine != null ? "Active" : "Not Active")}";
-        cruiseText.text = $"Cruise: {(cruiseCoroutine != null ? "Active" : "Not Active")}";
         Move();
     }
 
