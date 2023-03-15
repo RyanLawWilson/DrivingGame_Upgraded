@@ -12,6 +12,7 @@ public class PlayerDetectionRadius : MonoBehaviour
 
     private void Awake() {
         customer = gameObject.GetComponentInParent<Customer>();
+        if (customer == null) {return;}
         
         packageSizeToSpriteIdDictionry = new Dictionary<int, int>() {
             {1,0}, {2,3}, {3,2}, {5,1}, {7,4}
